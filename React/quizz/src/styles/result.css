@@ -1,0 +1,27 @@
+body{
+    padding: 0;
+    margin: 0;
+
+}
+
+.result{
+    background-color: #dd95e9;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.result__box{
+    width: 30%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius:20px;
+    text-align: center;
+}
+
+.img{
+    width: 40%;
+    height: 40%;
+    padding: 30px;
+}
