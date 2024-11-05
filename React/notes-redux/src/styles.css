@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Jost;
+    background-color: black;
+    color: white;
+}
+
+.container{
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+}

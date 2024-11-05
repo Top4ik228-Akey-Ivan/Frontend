@@ -1,0 +1,41 @@
+.note{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+textarea{
+    background-color: black;
+    color: white;
+    align-content: top;
+    text-decoration: none;
+    border: 2px solid black;
+    resize: none;
+}
+
+.areaTitle{
+    font-size: 48px;
+    height: 64px;
+}
+
+.areaText{
+    font-size: 24px;
+    height: 32px;
+}
+
+.addBtn{
+    background-color: black;
+    border: 2px solid rgb(103, 102, 102);
+    padding: 10px 0px;
+    color: white;
+    border-radius: 10px;
+    width: 150px;
+    font-size: 18px;
+
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.addBtn:hover{
+    background-color: rgb(103, 102, 102);
+}

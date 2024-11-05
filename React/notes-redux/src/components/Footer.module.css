@@ -1,0 +1,21 @@
+.footer{
+    margin-top: 20px;
+    display: flex;
+    justify-content: right;
+}
+
+.imgBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+
+    background-color: rgb(38, 37, 37);
+}
+
+img{
+    width: 32px;
+}
