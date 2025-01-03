@@ -1,0 +1,94 @@
+.chatPage{
+    padding-bottom: 50px;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid black;
+}
+.chatContainer{
+    width: 80%;
+    margin: 0 auto;
+
+    position: fixed; /* Фиксированное позиционирование для формы */
+    bottom: 0; /* Привязываем к нижней части экрана */
+    left: 0; /* Привязываем к левому краю экрана */
+    right: 0; /* Привязываем к правому краю экрана */
+}
+.chat{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 400px;
+
+    cursor: pointer;
+}
+.chatImg{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.span{
+    display: inline-block;
+    max-width: 400px;
+
+    padding: 4px; 
+    margin-bottom: 6px;
+
+    background-Color: white;
+    border-radius: 8px;
+}
+
+.form { 
+    display: flex; 
+    justify-content: center;
+    gap:20px; 
+    align-items: center;
+
+}
+
+.input{
+    padding-left: 10px;
+    width: 600px;
+    height: 36px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.button{
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+
+    border: none;
+      
+}
+.button__img{
+    width: 24px;
+}
+.message__box{
+    display: flex;
+    align-items: center;
+    gap:6px;
+}
+
+.chatHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.chatHeader__btn{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #fff;
+
+    border: none;
+}
+

@@ -1,0 +1,29 @@
+.participants-input {
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000; /* Чтобы выпадающее меню отображалось поверх других элементов */
+}
+
+.dropdown li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: #f0f0f0; /* Цвет фона при наведении */
+}
+
+.selected-participants {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 5px;
+}

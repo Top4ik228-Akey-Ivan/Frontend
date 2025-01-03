@@ -95,3 +95,38 @@ export const getMe = async(req, res) => {
         })
     }
 }
+
+export const getAllUsers = async(req, res) => {
+    try {
+        const users = await UserModel.find()
+        if(!users) {
+            return res.status(404).json({
+                message: 'Пользователи не найдены'
+            })
+        }
+        res.json(users)
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({
+            message: 'Не получилось получить всех пользователей'
+        })
+    }
+}
+
+export const updateUser = async(req, res) => {
+    const { id } = req.params
+    const updatedData = req.body
+    try {
+        const doc = await UserModel.findByIdAndUpdate(id, updatedData, {new: true})
+        if (!doc) {
+            return res.status(404).json({
+                message: 'Не удалось найти пользователя'
+            })
+        }
+        res.json(doc)
+    } catch (err) {
+        res.status(500).json({
+            message: 'Не получилось обновить пользователя'
+        })
+    } 
+}

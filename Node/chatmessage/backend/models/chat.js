@@ -1,9 +1,12 @@
 import mongoose from 'mongoose'
 
 const chatSchema = new mongoose.Schema({
-    name: {type: String, required: true},
-    participants: [{ type: String, ref: 'User' }]
+    chatName: {type: String, required: true},
+    participants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    lastMessage: {type: mongoose.Schema.Types.ObjectId, ref: 'Message'},
+    chatUrl: {type: String}
 })
 
-module.exports = mongoose.model('Chat', chatSchema)
+export default mongoose.model('Chat', chatSchema)
+
 

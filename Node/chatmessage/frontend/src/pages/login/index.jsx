@@ -7,13 +7,14 @@ import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector} from 'react-redux'
 import { Navigate } from "react-router-dom";
 
+
 import styles from "./Login.module.scss";
 import { fetchAuth, selectIsAuth } from "../../redux/slices/auth";
 
 function Login () {
   const isAuth = useSelector(selectIsAuth)
   const dispatch = useDispatch()
-  const { register, handleSubmit, setError, formState: {errors, isValid}, } = useForm({
+  const { register, handleSubmit, formState: {errors, isValid}, } = useForm({
     defaultValues: {
       email: 'admin@gmail.com',
       password: 'admin'
@@ -21,9 +22,18 @@ function Login () {
     mode: 'onChange'
   })
   
-  const onSubmit = (values) => {
-    dispatch(fetchAuth(values))
+  const onSubmit = async (values) => {
+    const data = await dispatch(fetchAuth(values))
+    if (!data.payload) {
+      return alert('Не удалось авторизоваться')
+    }
+    if ('token' in data.payload) {
+      window.localStorage.setItem('token', data.payload.token)
+    }
+    
   }
+
+
   if (isAuth) {
     return <Navigate to='/'></Navigate>
   }
@@ -51,7 +61,7 @@ function Login () {
           {...register('password', {required: 'Укажите пароль'})}
           fullWidth
            />
-        <Button type="submit" size="large" variant="contained" fullWidth>
+        <Button disabled={!isValid} type="submit" size="large" variant="contained" fullWidth>
           Войти
         </Button>
       </form>
