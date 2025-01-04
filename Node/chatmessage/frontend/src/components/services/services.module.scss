@@ -1,0 +1,19 @@
+img{
+    width: 20px;
+}
+
+
+.services__li{
+    display: flex;
+    align-items: center;
+
+    gap:6px;
+    margin-bottom: 10px;
+
+    list-style-type: none;
+}
+
+.services__link{
+    text-decoration: none;
+    color: black;
+}

@@ -53,8 +53,8 @@ const Chats = () => {
     return ( 
         <div className='container'> 
             <div className={styles.chatHeader}>
-                <p>Чаты</p>
-                <button className={styles.chatHeader__btn} onClick={openModal}>+</button>
+                <h4>Чаты</h4>
+                <button className={styles.chatHeader__btn} onClick={openModal}>Добавить чат</button>
                 <AddChatModal 
                     isOpen={modalIsOpen} 
                     onClose={closeModal}

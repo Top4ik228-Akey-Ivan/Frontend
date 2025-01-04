@@ -73,9 +73,9 @@ const ChatPage = () => {
     };
 
     return (  
-        <div className={styles.chatPage}>  
+        <div className='container'>  
             {isAuth ? (          
-                <div className="container">  
+                <div>  
                     {curChat ? ( 
                         <h1>{curChat.chatName}</h1>
                     ) : ( 

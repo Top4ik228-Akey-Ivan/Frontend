@@ -2,29 +2,32 @@
     padding-bottom: 50px;
 }
 
-.container{
-    width: 80%;
-    margin: 0 auto;
-    border: 2px solid black;
-}
+
 .chatContainer{
-    width: 80%;
-    margin: 0 auto;
+    width: 40%;
 
     position: fixed; /* Фиксированное позиционирование для формы */
     bottom: 0; /* Привязываем к нижней части экрана */
-    left: 0; /* Привязываем к левому краю экрана */
-    right: 0; /* Привязываем к правому краю экрана */
+    box-sizing: border-box;
+    border: 2px solid black;
 }
+
+
 .chat{
-    margin-top: 10px;
+    padding: 6px 0 6px 10px;
     display: flex;
     align-items: center;
     gap: 14px;
-    width: 400px;
+    width: 100%;
 
     cursor: pointer;
+    border-radius: 10px;
+    transition: .1s linear;
 }
+.chat:hover{
+    background-color: #d5d6f6;
+}
+
 .chatImg{
     width: 64px;
     height: 64px;
@@ -52,7 +55,7 @@
 
 .input{
     padding-left: 10px;
-    width: 600px;
+    width: 100%;
     height: 36px;
     border-radius: 10px;
     border: none;
@@ -80,15 +83,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
 }
 
 .chatHeader__btn{
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: #fff;
+    padding: 5px 10px;
+
+    border-radius: 4px;
+    background-color: #BBA2F5;
+
+    cursor: pointer;
 
     border: none;
+    outline: none;
 }
 

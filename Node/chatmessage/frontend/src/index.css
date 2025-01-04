@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -21,16 +22,26 @@ code {
 .container{
     min-height: 100vh;
     width: 40%;
-    margin: 0 auto;
-    /* border: 2px solid black; */
+    /* margin: 0 auto; */
+    border: 2px solid black;
 }
 
-.chatContainer{
-  position: relative;
-}
 
 .avatar__img{
   width: 32px;
   height: 32px;
   border-radius: 50%;
 }
+
+.main { 
+  padding-top: 10px;
+
+  display: flex; 
+  justify-content: center;
+  gap: 16px;
+  border: 5px solid black; 
+  width: 100%; /* Или фиксированная ширина, если необходимо */
+  min-height: 100vh; /* Для центрирования по вертикали */
+  box-sizing: border-box; 
+}
+

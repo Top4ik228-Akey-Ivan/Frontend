@@ -1,8 +1,26 @@
-.participants-input {
-  border: 1px solid #ccc;
-  padding: 10px;
+
+.modal__input{
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 10px;
+  font-size: 18px;
+  outline: none;
+  border: 2px solid #A2D8F5;
+  border-radius: 8px;
   cursor: pointer;
 }
+
+.modal__btn{
+  border: none;
+  outline: none;
+  margin: 10px 0 0 0;
+  font-size: 18px;
+
+  border-radius: 6px;
+  padding: 5px 10px;
+  background-color: #A2D8F5;
+}
+
 
 .dropdown {
   position: absolute;
@@ -10,7 +28,7 @@
   border: 1px solid #ccc;
   max-height: 150px;
   overflow-y: auto;
-  z-index: 1000; /* Чтобы выпадающее меню отображалось поверх других элементов */
+  z-index: 1000; 
 }
 
 .dropdown li {

@@ -50,20 +50,18 @@ const Profile = () => {
     }; 
  
     return ( 
-        <div> 
-            <div className='container'>
-                <input type="file" onChange={handleFileChange}/> 
-                <button onClick={handleUpload} disabled={uploading}> 
-                    {uploading ? 'Загрузка...' : 'Загрузить'} 
-                </button> 
-                {uploadUrl && ( 
-                    <div> 
-                        <h3>Загруженное изображение:</h3> 
-                        <img src={uploadUrl} alt="Uploaded" style={{ maxWidth: '300px' }} /> 
-                    </div> 
-                )} 
-            </div>
-        </div> 
+        <div className='container'>
+            <input type="file" onChange={handleFileChange}/> 
+            <button onClick={handleUpload} disabled={uploading}> 
+                {uploading ? 'Загрузка...' : 'Загрузить'} 
+            </button> 
+            {uploadUrl && ( 
+                <div> 
+                    <h3>Загруженное изображение:</h3> 
+                    <img src={uploadUrl} alt="Uploaded" style={{ maxWidth: '300px' }} /> 
+                </div> 
+            )} 
+        </div>
     ); 
 }; 
  

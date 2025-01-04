@@ -28,7 +28,7 @@ const Header = () => {
     return (
     <div className={styles.header_background}>
         <div className={classNames(styles.header, styles.container)}> 
-            <div className={styles.messangerName}>Месседжер Ивана</div>
+            <h3 className={styles.messangerName}>Body Track</h3>
             {isAuth ? (
                 <div className={styles.login}>
                     <Link to='/profile'>

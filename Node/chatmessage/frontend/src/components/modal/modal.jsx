@@ -21,17 +21,16 @@ Modal.setAppElement('#root');
 export const ChatModal = ({ isOpen, onClose, availableUsers}) => {
     const [chatName, setChatName] = useState('');
     const [selectedParticipants, setSelectedParticipants] = useState([]);
+    const [selectedParticipantsNames, setSelectedParticipantsNames] = useState([]);
     const [dropdownVisible, setDropdownVisible] = useState(false);
 
     const [selectedFile, setSelectedFile] = useState(null); 
     const [uploading, setUploading] = useState(false); 
-    // const [fileName, setFileName] = useState(''); 
     const [fileUrl, setFileUrl] = useState('')
  
     const handleFileChange = (event) => { 
         const file = event.target.files[0]
-        setSelectedFile(file);
-        // setFileName(file.name)     
+        setSelectedFile(file);   
     }; 
 
  
@@ -71,7 +70,9 @@ export const ChatModal = ({ isOpen, onClose, availableUsers}) => {
 
     const handleParticipantSelect = (participant) => {
         if (!selectedParticipants.includes(participant)) {
+            console.log(participant)
             setSelectedParticipants([...selectedParticipants, participant]);
+            setSelectedParticipantsNames([...selectedParticipantsNames, participant.fullName]);
         }
         setDropdownVisible(false);
     };
@@ -80,58 +81,59 @@ export const ChatModal = ({ isOpen, onClose, availableUsers}) => {
         setSelectedParticipants(selectedParticipants.filter(p => p !== participant));
     };
 
-    return (
-        <Modal 
-            isOpen={isOpen} 
-            onRequestClose={onClose} 
-            style={customStyles} 
-            contentLabel="Add Chat Modal" 
-        > 
-            <h2>Добавление нового чата</h2> 
-            <form onSubmit={handleSubmit}> 
-                <div> 
-                    <label htmlFor="chat-name">Название чата:</label> 
-                    <input 
-                        type="text" 
-                        id="chat-name" 
-                        value={chatName} 
-                        onChange={(e) => setChatName(e.target.value)} 
-                    /> 
-                </div> 
-                <div> 
-                    <label htmlFor="photo-url">Фотография чата:</label> 
-                    <input type="file" onChange={handleFileChange}/> 
-                    <button onClick={handleUpload} disabled={uploading}> 
-                        {uploading ? 'Загрузка...' : 'Загрузить'} 
-                    </button>  
-                </div> 
-                <div> 
-                    <label htmlFor="participants">Участники чата:</label> 
-                    <div className="participants-input" onClick={() => setDropdownVisible(!dropdownVisible)}>
-                        {selectedParticipants.length > 0 ? selectedParticipants.join(', ') : 'Выберите участников'}
-                    </div>
-                    {dropdownVisible && (
-                        <ul className="dropdown"> 
-                            {availableUsers.map(user => ( 
-                                <li key={user.id} onClick={() => handleParticipantSelect(user._id)}> 
-                                    {user.fullName} 
-                                </li> 
-                            ))} 
-                        </ul>
-                    )}
-                    <ul className="selected-participants">
-                        {selectedParticipants.map((participant, index) => ( 
-                            <li key={participant.id}>
-                                {participant} 
-                                <span onClick={() => handleParticipantRemove(participant)}>×</span>
-                            </li> 
-                        ))} 
-                    </ul>
-                </div> 
-                <button type="submit">Добавить чат</button> 
-            </form> 
-        </Modal>
+
+    return ( 
+        <Modal  
+            isOpen={isOpen}  
+            onRequestClose={onClose}  
+            style={customStyles}  
+            contentLabel="Add Chat Modal"  
+        >  
+            <h2>Добавление нового чата</h2>  
+            <form onSubmit={handleSubmit}>  
+                <div className='chatName__box'>  
+                    <input className='chatName__input modal__input' 
+                        type="text"  
+                        id="chat-name"  
+                        placeholder='Название чата' 
+                        value={chatName}  
+                        onChange={(e) => setChatName(e.target.value)}  
+                    />  
+                </div>  
+                <div className="chatPhoto__box modal__input">  
+                    <label htmlFor="photo-url">Фотография чата:</label>  
+                    <input type="file" onChange={handleFileChange}/>  
+                    <button onClick={handleUpload} disabled={uploading}>  
+                        {uploading ? 'Загрузка...' : 'Загрузить'}  
+                    </button>   
+                </div>  
+                <div>  
+                    <div className="participants-input modal__input" onClick={() => setDropdownVisible(!dropdownVisible)}> 
+                        {selectedParticipantsNames.length > 0 ? selectedParticipantsNames.join(', ') : 'Выберите участников'} 
+                    </div> 
+                    {dropdownVisible && ( 
+                        <ul className="dropdown">  
+                            {availableUsers.map(user => (  
+                                <li key={user.id} onClick={() => handleParticipantSelect(user)}>  
+                                    {user.fullName}  
+                                </li>  
+                            ))}  
+                        </ul> 
+                    )} 
+                    <ul className="selected-participants"> 
+                        {selectedParticipants.map(participant => (  
+                            <li key={participant.id}> 
+                                {participant.fullName}  
+                                <span onClick={() => handleParticipantRemove(participant)}>×</span> 
+                            </li>  
+                        ))}  
+                    </ul> 
+                </div>  
+                <button className='modal__btn' type="submit">Добавить чат</button>  
+            </form>  
+        </Modal> 
     );
+    
 };
 
 export default ChatModal;
